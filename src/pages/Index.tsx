@@ -1,4 +1,5 @@
 import { AppLayout } from "@/components/layout/AppLayout";
+import { WelcomeBanner } from "@/components/dashboard/WelcomeBanner";
 
 const Index = () => {
   return (
@@ -12,6 +13,9 @@ const Index = () => {
             Welcome to Career Copilot - Your AI-powered co-pilot for landing your dream job
           </p>
         </div>
+
+        {/* Welcome Banner */}
+        <WelcomeBanner />
 
         {/* Content area - ready for cards and components */}
         <div className="grid gap-6">
