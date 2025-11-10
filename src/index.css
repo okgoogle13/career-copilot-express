@@ -2,55 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Corrected "M3 Expressive Plant" Design Tokens
+  These HSL values directly match our "Plant App" reference.
 */
-
 @layer base {
   :root {
-    /* M3 Expressive Dark Theme - Career Copilot */
-    --background: 246 16% 8%;
-    --foreground: 210 40% 98%;
+    /* Core Layout & Text */
+    --background: 240 11% 8%;  /* #131318 */
+    --foreground: 210 40% 98%; /* #F8FAFC (Fixes black text) */
 
-    --card: 246 14% 12%;
+    /* Default Card (Outlined) */
+    --card: 240 8% 12%;        /* #1E1E23 */
     --card-foreground: 210 40% 98%;
 
-    --popover: 246 14% 12%;
+    /* Popover (for menus, etc.) */
+    --popover: 240 8% 12%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 262 26% 76%;
+    /* Borders */
+    --border: 260 3% 30%;      /* #4B494D (M3 Outline Variant) */
+    --input: 260 3% 30%;
+    --ring: 262 17% 77%;
+
+    /* --- Brand & Accent Palette --- */
+
+    /* Primary (Soft Purple) */
+    --primary: 262 17% 77%;    /* #BDB0D6 */
     --primary-foreground: 210 40% 98%;
 
+    /* Tertiary (Dusty Pink) - For expressive cards */
+    --tertiary: 321 24% 79%;    /* #D8BFD0 */
+    --tertiary-foreground: 210 40% 98%; /* #F8FAFC (Text on pink) */
+    
+    /* shadcn/ui defaults (can be left as-is or tweaked) */
     --secondary: 217 32% 17%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 217 32% 17%;
     --muted-foreground: 214 32% 91%;
-
-    --accent: 320 20% 75%;
+    --accent: 217 32% 17%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 246 12% 18%;
-    --input: 246 12% 18%;
-    --ring: 262 26% 76%;
+    /* Radius */
+    --radius: 1rem; /* 16px */
+  }
 
-    --surface-container: 246 14% 12%;
-    --tertiary: 320 20% 75%;
+  /* Apply dark mode by default */
+  .dark {
+    /* All the same variables */
+    --background: 240 11% 8%;
+    --foreground: 210 40% 98%;
+    --card: 240 8% 12%;
+    --card-foreground: 210 40% 98%;
+    --popover: 240 8% 12%;
+    --popover-foreground: 210 40% 98%;
+    --border: 260 3% 30%;
+    --input: 260 3% 30%;
+    --ring: 262 17% 77%;
+    --primary: 262 17% 77%;
+    --primary-foreground: 210 40% 98%;
+    --tertiary: 321 24% 79%;
     --tertiary-foreground: 210 40% 98%;
-
-    --radius: 1rem;
-    
-    --sidebar-background: 246 14% 12%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 262 26% 76%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 246 12% 18%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 246 12% 18%;
-    --sidebar-ring: 262 26% 76%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 214 32% 91%;
+    --accent: 217 32% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
   }
 }
 
@@ -58,12 +79,12 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
   body {
-    @apply bg-background text-foreground font-body;
+    /* This will now correctly apply the dark bg and light text */
+    @apply bg-background text-foreground;
+    font-family: 'Roboto', sans-serif;
   }
-
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    font-family: 'Roboto Flex', serif;
   }
 }
