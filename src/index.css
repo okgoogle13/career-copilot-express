@@ -2,52 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Corrected "M3 Expressive Plant" Design Tokens
-  These HSL values directly match our "Plant App" reference.
+/* M3 Expressive Purple Theme (Export 04:47:57)
+  All HSL values match the schemes.dark specification.
 */
 @layer base {
   :root {
     /* Core Layout & Text */
-    --background: 240 11% 8%;  /* #131318 */
-    --foreground: 210 40% 98%; /* #F8FAFC (Fixes black text) */
+    --background: 252 12% 8%;  /* #131217 */
+    --foreground: 270 12% 89%; /* #E5E1E8 (onSurface) */
 
     /* Default Card (Outlined) */
-    --card: 240 8% 12%;        /* #1E1E23 */
-    --card-foreground: 210 40% 98%;
+    --card: 252 7% 13%;        /* #201F24 (surfaceContainer) */
+    --card-foreground: 270 12% 89%;
 
     /* Surface Containers (M3 Elevation System) */
-    --surface-container: 240 8% 12%;      /* #1E1E23 */
-    --surface-container-high: 240 6% 16%; /* #28262E */
-    --surface-container-highest: 240 5% 20%; /* #34313C */
+    --surface-container: 252 7% 13%;      /* #201F24 */
+    --surface-container-high: 255 4% 17%; /* #2B2A2E */
+    --surface-container-highest: 264 5% 21%; /* #363439 */
 
     /* Popover (for menus, etc.) */
-    --popover: 240 8% 12%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 252 7% 13%;
+    --popover-foreground: 270 12% 89%;
 
     /* Borders */
-    --border: 260 3% 30%;      /* #4B494D (M3 Outline Variant) */
-    --input: 260 3% 30%;
-    --ring: 262 17% 77%;
+    --border: 258 7% 29%;      /* #48454F (outlineVariant) */
+    --input: 258 7% 29%;
+    --ring: 249 100% 85%;
 
     /* --- Brand & Accent Palette --- */
 
     /* Primary (Soft Purple) */
-    --primary: 262 17% 77%;    /* #BDB0D6 */
-    --primary-foreground: 210 40% 98%;
+    --primary: 249 100% 85%;    /* #C0B5FF */
+    --primary-foreground: 247 46% 28%; /* #2E2667 (onPrimary) */
 
-    /* Tertiary (Dusty Pink) - For expressive cards */
-    --tertiary: 321 24% 79%;    /* #D8BFD0 */
-    --tertiary-foreground: 210 40% 98%; /* #F8FAFC (Text on pink) */
+    /* Tertiary (Pink) - For expressive cards */
+    --tertiary: 337 56% 82%;    /* #E7BBCC */
+    --tertiary-foreground: 325 28% 21%; /* #432637 (onTertiary) */
     
-    /* shadcn/ui defaults (can be left as-is or tweaked) */
-    --secondary: 217 32% 17%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217 32% 17%;
-    --muted-foreground: 214 32% 91%;
-    --accent: 217 32% 17%;
-    --accent-foreground: 210 40% 98%;
+    /* shadcn/ui defaults */
+    --secondary: 265 17% 79%;  /* #C9C4D0 */
+    --secondary-foreground: 270 12% 89%;
+    --muted: 252 7% 13%;
+    --muted-foreground: 265 17% 79%; /* #C9C4D0 (onSurfaceVariant) */
+    --accent: 252 7% 13%;
+    --accent-foreground: 270 12% 89%;
     --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 270 12% 89%;
 
     /* Radius */
     --radius: 1rem; /* 16px */
@@ -56,30 +56,30 @@
   /* Apply dark mode by default */
   .dark {
     /* All the same variables */
-    --background: 240 11% 8%;
-    --foreground: 210 40% 98%;
-    --card: 240 8% 12%;
-    --card-foreground: 210 40% 98%;
-    --surface-container: 240 8% 12%;
-    --surface-container-high: 240 6% 16%;
-    --surface-container-highest: 240 5% 20%;
-    --popover: 240 8% 12%;
-    --popover-foreground: 210 40% 98%;
-    --border: 260 3% 30%;
-    --input: 260 3% 30%;
-    --ring: 262 17% 77%;
-    --primary: 262 17% 77%;
-    --primary-foreground: 210 40% 98%;
-    --tertiary: 321 24% 79%;
-    --tertiary-foreground: 210 40% 98%;
-    --secondary: 217 32% 17%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217 32% 17%;
-    --muted-foreground: 214 32% 91%;
-    --accent: 217 32% 17%;
-    --accent-foreground: 210 40% 98%;
+    --background: 252 12% 8%;
+    --foreground: 270 12% 89%;
+    --card: 252 7% 13%;
+    --card-foreground: 270 12% 89%;
+    --surface-container: 252 7% 13%;
+    --surface-container-high: 255 4% 17%;
+    --surface-container-highest: 264 5% 21%;
+    --popover: 252 7% 13%;
+    --popover-foreground: 270 12% 89%;
+    --border: 258 7% 29%;
+    --input: 258 7% 29%;
+    --ring: 249 100% 85%;
+    --primary: 249 100% 85%;
+    --primary-foreground: 247 46% 28%;
+    --tertiary: 337 56% 82%;
+    --tertiary-foreground: 325 28% 21%;
+    --secondary: 265 17% 79%;
+    --secondary-foreground: 270 12% 89%;
+    --muted: 252 7% 13%;
+    --muted-foreground: 265 17% 79%;
+    --accent: 252 7% 13%;
+    --accent-foreground: 270 12% 89%;
     --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 270 12% 89%;
   }
 }
 
