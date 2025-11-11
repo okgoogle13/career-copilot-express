@@ -15,6 +15,11 @@
     --card: 240 8% 12%;        /* #1E1E23 */
     --card-foreground: 210 40% 98%;
 
+    /* Surface Containers (M3 Elevation System) */
+    --surface-container: 240 8% 12%;      /* #1E1E23 */
+    --surface-container-high: 240 6% 16%; /* #28262E */
+    --surface-container-highest: 240 5% 20%; /* #34313C */
+
     /* Popover (for menus, etc.) */
     --popover: 240 8% 12%;
     --popover-foreground: 210 40% 98%;
@@ -55,6 +60,9 @@
     --foreground: 210 40% 98%;
     --card: 240 8% 12%;
     --card-foreground: 210 40% 98%;
+    --surface-container: 240 8% 12%;
+    --surface-container-high: 240 6% 16%;
+    --surface-container-highest: 240 5% 20%;
     --popover: 240 8% 12%;
     --popover-foreground: 210 40% 98%;
     --border: 260 3% 30%;
