@@ -8,7 +8,7 @@
 @layer base {
   :root {
     /* Core Layout & Text */
-    --background: 252 12% 8%;  /* #131217 */
+    --background: 252 15% 6%;  /* #0F0D12 - Darker for better contrast */
     --foreground: 270 12% 89%; /* #E5E1E8 (onSurface) */
 
     /* Default Card (Outlined) */
@@ -56,7 +56,7 @@
   /* Apply dark mode by default */
   .dark {
     /* All the same variables */
-    --background: 252 12% 8%;
+    --background: 252 15% 6%;
     --foreground: 270 12% 89%;
     --card: 252 7% 13%;
     --card-foreground: 270 12% 89%;
