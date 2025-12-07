@@ -38,36 +38,32 @@ const Documents = () => {
 
   return (
     <AppLayout>
-      <div className="space-y-8 max-w-[1600px] mx-auto">
-        {/* Header */}
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <h1 className="text-4xl font-heading font-semibold text-foreground">
+      <div className="space-y-8">
+        {/* Header - Control Bar */}
+        <div className="flex flex-col gap-6">
+          {/* Title Row */}
+          <div className="flex items-center justify-between">
+            <h1 className="text-5xl font-heading font-semibold text-white">
               Documents
             </h1>
-            <p className="text-muted-foreground mt-2">
-              Manage your resumes, cover letters, and career documents
-            </p>
-          </div>
-          <div className="min-w-[200px]">
             <CreateDocumentDialog />
           </div>
-        </div>
 
-        {/* Filters */}
-        <DocumentFilters
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          documentType={documentType}
-          onTypeChange={setDocumentType}
-          sortBy={sortBy}
-          onSortChange={setSortBy}
-        />
+          {/* Filters Row */}
+          <DocumentFilters
+            searchQuery={searchQuery}
+            onSearchChange={setSearchQuery}
+            documentType={documentType}
+            onTypeChange={setDocumentType}
+            sortBy={sortBy}
+            onSortChange={setSortBy}
+          />
+        </div>
 
         {/* Documents Grid */}
         <div>
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-heading font-semibold text-foreground">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-lg font-heading font-medium text-muted-foreground">
               Your Documents
             </h2>
             <p className="text-sm text-muted-foreground">
@@ -81,12 +77,13 @@ const Documents = () => {
                 <DocumentCard
                   key={doc.id}
                   title={doc.title}
-                  lastUpdated={`Last updated ${doc.lastUpdated}`}
+                  lastUpdated={doc.lastUpdated}
+                  type={doc.type}
                 />
               ))}
             </div>
           ) : (
-            <div className="text-center py-12">
+            <div className="text-center py-12 bg-surface-container rounded-[28px]">
               <p className="text-muted-foreground">No documents found matching your criteria.</p>
             </div>
           )}

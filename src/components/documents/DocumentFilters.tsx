@@ -1,13 +1,6 @@
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
+import { Search, FileText, FolderOpen, Clock, ArrowUpAZ, ArrowDownAZ } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface DocumentFiltersProps {
   searchQuery: string;
@@ -18,6 +11,20 @@ interface DocumentFiltersProps {
   onSortChange: (value: string) => void;
 }
 
+const typeFilters = [
+  { value: "all", label: "All Types", icon: FolderOpen },
+  { value: "resume", label: "Resume", icon: FileText },
+  { value: "cover-letter", label: "Cover Letter", icon: FileText },
+  { value: "portfolio", label: "Portfolio", icon: FileText },
+  { value: "cv", label: "CV", icon: FileText },
+];
+
+const sortOptions = [
+  { value: "recent", label: "Recent", icon: Clock },
+  { value: "name-asc", label: "A-Z", icon: ArrowUpAZ },
+  { value: "name-desc", label: "Z-A", icon: ArrowDownAZ },
+];
+
 export const DocumentFilters = ({
   searchQuery,
   onSearchChange,
@@ -27,48 +34,58 @@ export const DocumentFilters = ({
   onSortChange,
 }: DocumentFiltersProps) => {
   return (
-    <Card className="bg-surface-container border-border">
-      <CardContent className="p-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {/* Search */}
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <Input
-              placeholder="Search documents..."
-              value={searchQuery}
-              onChange={(e) => onSearchChange(e.target.value)}
-              className="pl-9"
-            />
-          </div>
+    <div className="flex flex-wrap items-center gap-3">
+      {/* Search Bar - Sage Green Pill */}
+      <div className="relative flex-1 min-w-[280px]">
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#8BB197]" />
+        <Input
+          placeholder="Search documents..."
+          value={searchQuery}
+          onChange={(e) => onSearchChange(e.target.value)}
+          className="pl-12 pr-4 h-12 rounded-full bg-surface-container-low border-0 text-foreground placeholder:text-muted-foreground focus-visible:ring-[#8BB197]/50"
+        />
+      </div>
 
-          {/* Document Type Filter */}
-          <Select value={documentType} onValueChange={onTypeChange}>
-            <SelectTrigger>
-              <SelectValue placeholder="All types" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Types</SelectItem>
-              <SelectItem value="resume">Resume</SelectItem>
-              <SelectItem value="cover-letter">Cover Letter</SelectItem>
-              <SelectItem value="portfolio">Portfolio</SelectItem>
-              <SelectItem value="cv">CV</SelectItem>
-            </SelectContent>
-          </Select>
+      {/* Type Filter Chips */}
+      <div className="flex items-center gap-2">
+        {typeFilters.map((filter) => (
+          <button
+            key={filter.value}
+            onClick={() => onTypeChange(filter.value)}
+            className={cn(
+              "flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all",
+              documentType === filter.value
+                ? "bg-[#8BB197] text-[#1A1625]"
+                : "bg-surface-container-low text-muted-foreground hover:bg-surface-container hover:text-foreground"
+            )}
+          >
+            <filter.icon className="w-4 h-4" />
+            <span>{filter.label}</span>
+          </button>
+        ))}
+      </div>
 
-          {/* Sort By */}
-          <Select value={sortBy} onValueChange={onSortChange}>
-            <SelectTrigger>
-              <SelectValue placeholder="Sort by" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="recent">Most Recent</SelectItem>
-              <SelectItem value="oldest">Oldest First</SelectItem>
-              <SelectItem value="name-asc">Name (A-Z)</SelectItem>
-              <SelectItem value="name-desc">Name (Z-A)</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-      </CardContent>
-    </Card>
+      {/* Divider */}
+      <div className="w-px h-8 bg-border/50" />
+
+      {/* Sort Chips */}
+      <div className="flex items-center gap-2">
+        {sortOptions.map((option) => (
+          <button
+            key={option.value}
+            onClick={() => onSortChange(option.value)}
+            className={cn(
+              "flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all",
+              sortBy === option.value
+                ? "bg-[#8BB197] text-[#1A1625]"
+                : "bg-surface-container-low text-muted-foreground hover:bg-surface-container hover:text-foreground"
+            )}
+          >
+            <option.icon className="w-4 h-4" />
+            <span>{option.label}</span>
+          </button>
+        ))}
+      </div>
+    </div>
   );
 };

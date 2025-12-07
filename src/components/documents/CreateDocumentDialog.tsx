@@ -40,14 +40,17 @@ export const CreateDocumentDialog = () => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button size="lg" className="w-full">
+        <Button 
+          size="lg" 
+          className="bg-[#9D4EDD] hover:bg-[#8B3DC9] text-white rounded-full px-6 h-12 font-medium shadow-lg shadow-[#9D4EDD]/20"
+        >
           <Plus className="mr-2 h-5 w-5" />
           Create New Document
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px]">
+      <DialogContent className="sm:max-w-[500px] rounded-[28px] bg-surface-container border-border">
         <DialogHeader>
-          <DialogTitle className="font-heading text-2xl">Create New Document</DialogTitle>
+          <DialogTitle className="font-heading text-2xl text-foreground">Create New Document</DialogTitle>
           <DialogDescription className="text-muted-foreground">
             Choose a document type and give it a name to get started.
           </DialogDescription>
@@ -58,10 +61,10 @@ export const CreateDocumentDialog = () => {
               Document Type
             </Label>
             <Select value={documentType} onValueChange={setDocumentType}>
-              <SelectTrigger id="document-type">
+              <SelectTrigger id="document-type" className="rounded-xl bg-surface-container-low border-border">
                 <SelectValue placeholder="Select document type" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="rounded-xl bg-surface-container border-border">
                 <SelectItem value="resume">Resume</SelectItem>
                 <SelectItem value="cover-letter">Cover Letter</SelectItem>
                 <SelectItem value="portfolio">Portfolio</SelectItem>
@@ -78,6 +81,7 @@ export const CreateDocumentDialog = () => {
               placeholder="e.g., Senior Developer Resume"
               value={documentName}
               onChange={(e) => setDocumentName(e.target.value)}
+              className="rounded-xl bg-surface-container-low border-border"
             />
           </div>
         </div>
@@ -85,11 +89,14 @@ export const CreateDocumentDialog = () => {
           <Button
             variant="outline"
             onClick={() => setOpen(false)}
-            className="flex-1"
+            className="flex-1 rounded-full"
           >
             Cancel
           </Button>
-          <Button onClick={handleCreate} className="flex-1">
+          <Button 
+            onClick={handleCreate} 
+            className="flex-1 rounded-full bg-[#9D4EDD] hover:bg-[#8B3DC9] text-white"
+          >
             Create Document
           </Button>
         </div>
