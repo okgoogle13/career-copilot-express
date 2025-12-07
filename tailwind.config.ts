@@ -63,6 +63,15 @@ module.exports = {
           container: "hsl(var(--surface-container))",
           "container-high": "hsl(var(--surface-container-high))",
           "container-highest": "hsl(var(--surface-container-highest))",
+          "container-low": "hsl(var(--surface-container-low))",
+        },
+        "surface-container": "hsl(var(--surface-container))",
+        "surface-container-low": "hsl(var(--surface-container-low))",
+        "surface-container-high": "hsl(var(--surface-container-high))",
+        "surface-container-highest": "hsl(var(--surface-container-highest))",
+        "sage-green": {
+          DEFAULT: "hsl(var(--sage-green))",
+          foreground: "hsl(var(--sage-green-foreground))",
         },
       },
       borderRadius: {
