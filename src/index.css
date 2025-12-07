@@ -2,26 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-/* M3 Expressive Purple Theme (Export 04:47:57)
-  All HSL values match the schemes.dark specification.
+/* M3 Expressive Purple Theme (Organic Growth)
+   Updated for proper tonal elevation without shadows
 */
 @layer base {
   :root {
     /* Core Layout & Text */
-    --background: 252 15% 6%;  /* #0F0D12 - Darker for better contrast */
+    --background: 260 20% 11%;  /* #1A1625 - Deep charcoal base */
     --foreground: 270 12% 89%; /* #E5E1E8 (onSurface) */
 
     /* Default Card (Outlined) */
-    --card: 252 7% 13%;        /* #201F24 (surfaceContainer) */
+    --card: 260 18% 14%;        /* Slightly lighter than background */
     --card-foreground: 270 12% 89%;
 
-    /* Surface Containers (M3 Elevation System) */
-    --surface-container: 252 7% 13%;      /* #201F24 */
-    --surface-container-high: 255 4% 17%; /* #2B2A2E */
-    --surface-container-highest: 264 5% 21%; /* #363439 */
+    /* Surface Containers (M3 Tonal Elevation System) */
+    --surface-container: 260 18% 14%;      /* #231E32 - Nav rail, sidebar */
+    --surface-container-high: 260 15% 17%; /* #2B2635 - Stat cards */
+    --surface-container-highest: 260 12% 21%; /* #363142 - Highest elevation */
+
+    /* Navigation Rail (Level 1 - Floats above background) */
+    --surface-container-low: 260 18% 14%; /* #231E32 */
+
+    /* Sage Green Accent (for active states) */
+    --sage-green: 142 35% 45%; /* #5B9B6D */
+    --sage-green-foreground: 0 0% 100%;
 
     /* Popover (for menus, etc.) */
-    --popover: 252 7% 13%;
+    --popover: 260 18% 14%;
     --popover-foreground: 270 12% 89%;
 
     /* Borders */
@@ -35,35 +42,37 @@
     --primary: 249 100% 85%;    /* #C0B5FF */
     --primary-foreground: 247 46% 28%; /* #2E2667 (onPrimary) */
 
-    /* Tertiary (Pink) - For expressive cards */
+    /* Tertiary (Terracotta/Pink) - For FAB and expressive actions */
     --tertiary: 337 56% 82%;    /* #E7BBCC */
     --tertiary-foreground: 325 28% 21%; /* #432637 (onTertiary) */
     
     /* shadcn/ui defaults */
     --secondary: 265 17% 79%;  /* #C9C4D0 */
     --secondary-foreground: 270 12% 89%;
-    --muted: 252 7% 13%;
+    --muted: 260 18% 14%;
     --muted-foreground: 265 17% 79%; /* #C9C4D0 (onSurfaceVariant) */
-    --accent: 252 7% 13%;
+    --accent: 260 18% 14%;
     --accent-foreground: 270 12% 89%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 270 12% 89%;
 
-    /* Radius */
-    --radius: 1rem; /* 16px */
+    /* Radius - M3 Expressive Extra Large */
+    --radius: 1.75rem; /* 28px */
   }
 
   /* Apply dark mode by default */
   .dark {
-    /* All the same variables */
-    --background: 252 15% 6%;
+    --background: 260 20% 11%;
     --foreground: 270 12% 89%;
-    --card: 252 7% 13%;
+    --card: 260 18% 14%;
     --card-foreground: 270 12% 89%;
-    --surface-container: 252 7% 13%;
-    --surface-container-high: 255 4% 17%;
-    --surface-container-highest: 264 5% 21%;
-    --popover: 252 7% 13%;
+    --surface-container: 260 18% 14%;
+    --surface-container-high: 260 15% 17%;
+    --surface-container-highest: 260 12% 21%;
+    --surface-container-low: 260 18% 14%;
+    --sage-green: 142 35% 45%;
+    --sage-green-foreground: 0 0% 100%;
+    --popover: 260 18% 14%;
     --popover-foreground: 270 12% 89%;
     --border: 258 7% 29%;
     --input: 258 7% 29%;
@@ -74,9 +83,9 @@
     --tertiary-foreground: 325 28% 21%;
     --secondary: 265 17% 79%;
     --secondary-foreground: 270 12% 89%;
-    --muted: 252 7% 13%;
+    --muted: 260 18% 14%;
     --muted-foreground: 265 17% 79%;
-    --accent: 252 7% 13%;
+    --accent: 260 18% 14%;
     --accent-foreground: 270 12% 89%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 270 12% 89%;
@@ -88,7 +97,6 @@
     @apply border-border;
   }
   body {
-    /* This will now correctly apply the dark bg and light text */
     @apply bg-background text-foreground;
     font-family: 'Roboto', sans-serif;
   }
