@@ -7,10 +7,10 @@ interface AppLayoutProps {
 
 export const AppLayout = ({ children }: AppLayoutProps) => {
   return (
-    <div className="flex min-h-screen w-full bg-background">
+    <div className="flex min-h-screen w-full surface">
       <NavigationRail />
       {/* Main content with M3 24dp margins */}
-      <main className="flex-1 p-6">
+      <main className="flex-1 p-8">
         {children}
       </main>
     </div>

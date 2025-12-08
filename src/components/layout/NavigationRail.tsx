@@ -14,9 +14,9 @@ const navItems = [
 
 export const NavigationRail = () => {
   return (
-    <aside className="w-[88px] bg-surface-container-low flex flex-col items-center py-6 rounded-[28px] m-3 mr-0">
+    <aside className="w-[88px] surface-container-low flex flex-col items-center py-6 rounded-card m-3 mr-0">
       {/* Logo - Circular masked unicorn */}
-      <div className="w-14 h-14 rounded-full overflow-hidden bg-surface-container-high flex items-center justify-center mb-6">
+      <div className="w-14 h-14 rounded-full overflow-hidden surface-container-high flex items-center justify-center mb-6">
         <img
           src={unicornLogo}
           alt="Career Copilot"
@@ -41,7 +41,7 @@ export const NavigationRail = () => {
               key={item.path}
               to={item.path}
               end
-              className="w-14 h-14 flex items-center justify-center rounded-full text-muted-foreground transition-all duration-200 hover:bg-surface-container-high hover:text-foreground"
+              className="w-14 h-14 flex items-center justify-center rounded-full text-on-surface-variant transition-all duration-medium2 ease-standard hover:surface-container-high hover:text-on-surface"
               activeClassName="bg-sage-green text-sage-green-foreground"
             >
               <Icon className="w-6 h-6" />
@@ -51,8 +51,8 @@ export const NavigationRail = () => {
       </nav>
 
       {/* Avatar placeholder at bottom */}
-      <div className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center mt-auto">
-        <span className="text-sm font-medium text-foreground">N</span>
+      <div className="w-10 h-10 rounded-full surface-container-high flex items-center justify-center mt-auto">
+        <span className="text-sm font-medium text-on-surface">N</span>
       </div>
     </aside>
   );
