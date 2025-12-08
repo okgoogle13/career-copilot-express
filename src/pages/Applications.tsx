@@ -4,15 +4,17 @@ import { ApplicationCard } from "@/components/dashboard/ApplicationCard";
 const Applications = () => {
   return (
     <AppLayout>
-      <div className="space-y-8">
+      <div className="flex flex-col gap-6">
+        {/* Page Title - Display Small with font-hero */}
         <div>
-          <h1 className="text-4xl font-heading font-semibold text-foreground">
+          <h1 className="font-hero text-display-sm text-on-surface">
             Application Tracker
           </h1>
-          <p className="text-muted-foreground">Track your job applications</p>
+          <p className="font-plain text-on-surface-variant mt-2">Track your job applications</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Bento Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <ApplicationCard 
             title="Senior React Developer"
             company="Google"
@@ -33,6 +35,13 @@ const Applications = () => {
             location="Sydney, AU"
             status="Offer"
             currentStep="Offer"
+          />
+          <ApplicationCard 
+            title="Frontend Engineer"
+            company="Stripe"
+            location="Remote"
+            status="Interviewing"
+            currentStep="Screening"
           />
         </div>
       </div>

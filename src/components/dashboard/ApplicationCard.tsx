@@ -33,65 +33,72 @@ export const ApplicationCard = ({
   };
 
   return (
-    <Card>
-      <CardHeader className="space-y-3">
-        <div className="space-y-2">
-          <h3 className="font-heading font-semibold text-foreground">
-            {title}
-          </h3>
-          <p className="text-sm font-body text-muted-foreground">
-            {company} • {location}
-          </p>
+    <Card className="bg-[var(--color-surface-container)] rounded-[28px] border border-[var(--color-outline-variant)] p-6">
+      <CardHeader className="p-0 pb-4 space-y-3">
+        <div className="flex items-start justify-between">
+          <div className="space-y-1">
+            <h3 className="font-hero text-headline-md text-on-surface">
+              {title}
+            </h3>
+            <p className="text-sm font-plain text-on-surface-variant">
+              {company} • {location}
+            </p>
+          </div>
+          <Badge variant={getStatusVariant(status)} className="rounded-full px-3">
+            {status}
+          </Badge>
         </div>
-        <Badge variant={getStatusVariant(status)} className="w-fit">
-          {status}
-        </Badge>
       </CardHeader>
 
-      <CardContent>
-        <div className="space-y-3">
-          <p className="text-xs font-body text-muted-foreground uppercase tracking-wide">
-            Progress
-          </p>
-          <div className="flex items-center gap-2">
-            {steps.map((step, index) => (
+      <CardContent className="p-0 pb-4">
+        <p className="text-xs font-plain text-on-surface-variant uppercase tracking-wider mb-4">
+          Progress
+        </p>
+        {/* Connected Pills Progress Tracker */}
+        <div className="flex items-center gap-1">
+          {steps.map((step, index) => {
+            const isActive = index <= currentStepIndex;
+            const isLast = index === steps.length - 1;
+            
+            return (
               <div key={step} className="flex items-center flex-1">
-                <div className="flex flex-col items-center flex-1 gap-1">
-                  <div 
-                    className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold transition-colors ${
-                      index <= currentStepIndex 
-                        ? 'bg-primary text-primary-foreground' 
-                        : 'bg-muted text-muted-foreground'
-                    }`}
-                  >
-                    {index + 1}
-                  </div>
-                  <span className={`text-xs font-body ${
-                    index <= currentStepIndex 
-                      ? 'text-foreground' 
-                      : 'text-muted-foreground'
-                  }`}>
-                    {step}
-                  </span>
+                {/* Pill/Capsule Shape */}
+                <div 
+                  className={`
+                    flex-1 py-2 px-3 text-center text-xs font-plain font-medium transition-all
+                    ${index === 0 ? 'rounded-l-full' : ''}
+                    ${isLast ? 'rounded-r-full' : ''}
+                    ${isActive 
+                      ? 'bg-[var(--color-primary-container)] text-[var(--color-on-primary-container)]' 
+                      : 'border border-[var(--color-outline-variant)] text-on-surface-variant bg-transparent'
+                    }
+                  `}
+                >
+                  {step}
                 </div>
-                {index < steps.length - 1 && (
+                {/* Connector */}
+                {!isLast && (
                   <div 
-                    className={`h-0.5 flex-1 transition-colors ${
+                    className={`w-1 h-6 ${
                       index < currentStepIndex 
-                        ? 'bg-primary' 
-                        : 'bg-muted'
+                        ? 'bg-[var(--color-primary-container)]' 
+                        : 'bg-[var(--color-outline-variant)]'
                     }`}
                   />
                 )}
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </CardContent>
 
-      <CardFooter className="gap-2">
-        <Button variant="ghost" className="flex-1">Update Status</Button>
-        <Button variant="ghost" className="flex-1 text-destructive hover:text-destructive">Withdraw</Button>
+      <CardFooter className="p-0 pt-4 gap-3 border-t border-[var(--color-outline-variant)]">
+        <Button variant="ghost" className="flex-1 rounded-full text-on-surface hover:bg-[var(--color-surface-container-high)]">
+          Update Status
+        </Button>
+        <Button variant="ghost" className="flex-1 rounded-full text-error hover:bg-error/10">
+          Withdraw
+        </Button>
       </CardFooter>
     </Card>
   );
