@@ -2,93 +2,198 @@
 @tailwind components;
 @tailwind utilities;
 
-/* M3 Expressive Purple Theme (Organic Growth)
-   Updated for proper tonal elevation without shadows
-*/
 @layer base {
   :root {
-    /* Core Layout & Text */
-    --background: 260 20% 11%;  /* #1A1625 - Deep charcoal base */
-    --foreground: 270 12% 89%; /* #E5E1E8 (onSurface) */
+    /* ------------------------- */
+    /* COLOR PALETTE             */
+    /* ------------------------- */
 
-    /* Default Card (Outlined) */
-    --card: 260 18% 14%;        /* Slightly lighter than background */
-    --card-foreground: 270 12% 89%;
+    /* Primary */
+    --color-primary: #D0BCFF;
+    --color-primary-container: #EADDFF;
+    --color-on-primary-container: #21005D;
+    --color-on-primary: #21005D;
+    --color-inverse-primary: #6750A4;
 
-    /* Surface Containers (M3 Tonal Elevation System) */
-    --surface-container: 260 18% 14%;      /* #231E32 - Nav rail, sidebar */
-    --surface-container-high: 260 15% 17%; /* #2B2635 - Stat cards */
-    --surface-container-highest: 260 12% 21%; /* #363142 - Highest elevation */
+    /* Secondary */
+    --color-secondary: #9D88D4;
+    --color-secondary-container: #E6DEFF;
+    --color-on-secondary: #2A2042;
 
-    /* Navigation Rail (Level 1 - Floats above background) */
-    --surface-container-low: 260 18% 14%; /* #231E32 */
+    /* Tertiary */
+    --color-tertiary: #EFB8C8;
+    --color-tertiary-container: #FFD8E4;
+    --color-on-tertiary: #492532;
 
-    /* Sage Green Accent (for active states) */
-    --sage-green: 142 35% 45%; /* #5B9B6D */
-    --sage-green-foreground: 0 0% 100%;
+    /* Error */
+    --color-error: #FF6B9D;
+    --color-error-container: #FFD9E2;
+    --color-on-error: #3E001D;
 
-    /* Popover (for menus, etc.) */
-    --popover: 260 18% 14%;
-    --popover-foreground: 270 12% 89%;
-
-    /* Borders */
-    --border: 258 7% 29%;      /* #48454F (outlineVariant) */
-    --input: 258 7% 29%;
-    --ring: 249 100% 85%;
-
-    /* --- Brand & Accent Palette --- */
-
-    /* Primary (Soft Purple) */
-    --primary: 249 100% 85%;    /* #C0B5FF */
-    --primary-foreground: 247 46% 28%; /* #2E2667 (onPrimary) */
-
-    /* Tertiary (Terracotta/Pink) - For FAB and expressive actions */
-    --tertiary: 337 56% 82%;    /* #E7BBCC */
-    --tertiary-foreground: 325 28% 21%; /* #432637 (onTertiary) */
+    /* Surface & Background */
+    --color-background: #141218;
+    --color-on-background: #E6E0E9;
     
-    /* shadcn/ui defaults */
-    --secondary: 265 17% 79%;  /* #C9C4D0 */
-    --secondary-foreground: 270 12% 89%;
-    --muted: 260 18% 14%;
-    --muted-foreground: 265 17% 79%; /* #C9C4D0 (onSurfaceVariant) */
-    --accent: 260 18% 14%;
-    --accent-foreground: 270 12% 89%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 270 12% 89%;
+    --color-surface: #141218;
+    --color-surface-dim: #0F0D13;
+    --color-surface-bright: #1D1B22;
+    --color-surface-container-lowest: #0F0D13;
+    --color-surface-container-low: #1D1B20;
+    --color-surface-container: #211F26;
+    --color-surface-container-high: #2B2930;
+    --color-surface-container-highest: #36343B;
+    
+    --color-on-surface: #E6E0E9;
+    --color-on-surface-variant: #938F99;
+    --color-surface-variant: #49454F;
+    
+    --color-inverse-surface: #E6E0E9;
+    --color-inverse-on-surface: #141218;
 
-    /* Radius - M3 Expressive Extra Large */
-    --radius: 1.75rem; /* 28px */
-  }
+    /* Outline & Shadow */
+    --color-outline: #938F99;
+    --color-outline-variant: #49454F;
+    --color-shadow: #6750A4;
+    --color-scrim: #000000;
 
-  /* Apply dark mode by default */
-  .dark {
-    --background: 260 20% 11%;
-    --foreground: 270 12% 89%;
-    --card: 260 18% 14%;
-    --card-foreground: 270 12% 89%;
-    --surface-container: 260 18% 14%;
-    --surface-container-high: 260 15% 17%;
-    --surface-container-highest: 260 12% 21%;
-    --surface-container-low: 260 18% 14%;
+    /* Neutral Scale */
+    --color-neutral-0: #000000;
+    --color-neutral-10: #1A1C1E;
+    --color-neutral-20: #2F3133;
+    --color-neutral-40: #5D5E61;
+    --color-neutral-60: #90A4AE;
+    --color-neutral-80: #CFD8DC;
+    --color-neutral-90: #ECEFF1;
+    --color-neutral-100: #FFFFFF;
+
+    /* ------------------------- */
+    /* TYPOGRAPHY                */
+    /* ------------------------- */
+
+    /* Font Families */
+    --font-hologram: 'Nabla', display;
+    --font-hero: 'Roboto Flex', sans-serif;
+    --font-human: 'Roboto Serif', serif;
+    --font-ai: 'Roboto Flex', sans-serif;
+    --font-data: 'Roboto Flex', monospace;
+    --font-brand: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-plain: 'Plus Jakarta Sans Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-code: 'JetBrains Mono', 'SF Mono', 'Consolas', 'Monaco', monospace;
+
+    /* Font Sizes */
+    --text-display-lg: 4.5rem;    /* 72px */
+    --text-display-md: 3.375rem;  /* 54px */
+    --text-display-sm: 2.5rem;    /* 40px */
+    --text-headline-lg: 2rem;     /* 32px */
+    --text-headline-md: 1.5rem;   /* 24px */
+    --text-body-md: 1rem;         /* 16px */
+    --text-body-sm: 0.875rem;     /* 14px */
+
+    /* Line Heights */
+    --lh-display-lg: 64px;
+    --lh-body-lg: 24px;
+    --lh-body-md: 20px;
+
+    /* ------------------------- */
+    /* SHAPE & RADIUS            */
+    /* ------------------------- */
+    
+    --radius-card: 28px;
+    --radius-button: 24px;
+    --radius-badge: 8px;
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 28px;
+    --radius-full: 9999px;
+    --radius-asymmetric: 0 28px 28px 0;
+
+    /* ------------------------- */
+    /* SPACING                   */
+    /* ------------------------- */
+    
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-base: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 48px;
+    --spacing-2xl: 72px;
+    --spacing-3xl: 96px;
+    --spacing-grid: 24px;
+    
+    --spacing-card-padding: 24px;
+    --spacing-card-padding-top: 48px;
+
+    /* ------------------------- */
+    /* MOTION & ANIMATION        */
+    /* ------------------------- */
+
+    /* Easings */
+    --ease-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1.0);
+    --ease-emphasized-accelerate: cubic-bezier(0.3, 0.0, 0.8, 0.15);
+    --ease-standard: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* Durations */
+    --duration-short1: 50ms;
+    --duration-short2: 100ms;
+    --duration-short3: 150ms;
+    --duration-short4: 200ms;
+    --duration-medium1: 250ms;
+    --duration-medium2: 300ms;
+    --duration-medium3: 350ms;
+    --duration-long1: 450ms;
+
+    /* ------------------------- */
+    /* ELEVATION (Shadows)       */
+    /* ------------------------- */
+
+    --elevation-1: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    --elevation-2: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+    --elevation-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+    --elevation-4: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.3);
+    --elevation-5: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+    
+    /* ------------------------- */
+    /* Z-INDEX LAYERS            */
+    /* ------------------------- */
+    --z-base: 1;
+    --z-popout: 20;
+    --z-scrim: 39;
+    --z-modal: 50;
+    --z-tooltip: 60;
+
+    /* ------------------------- */
+    /* SHADCN COMPATIBILITY      */
+    /* ------------------------- */
+    --background: 270 7% 8%;
+    --foreground: 270 11% 90%;
+    --card: 270 9% 14%;
+    --card-foreground: 270 11% 90%;
+    --popover: 270 9% 14%;
+    --popover-foreground: 270 11% 90%;
+    --primary: 264 100% 87%;
+    --primary-foreground: 270 100% 18%;
+    --secondary: 262 41% 68%;
+    --secondary-foreground: 270 100% 18%;
+    --tertiary: 340 62% 83%;
+    --tertiary-foreground: 340 30% 24%;
+    --muted: 270 9% 14%;
+    --muted-foreground: 270 5% 58%;
+    --accent: 270 9% 17%;
+    --accent-foreground: 270 11% 90%;
+    --destructive: 340 100% 71%;
+    --destructive-foreground: 340 100% 12%;
+    --border: 270 7% 30%;
+    --input: 270 7% 30%;
+    --ring: 264 100% 87%;
+    --radius: 28px;
+    
+    /* Sage Green Accent */
     --sage-green: 142 35% 45%;
     --sage-green-foreground: 0 0% 100%;
-    --popover: 260 18% 14%;
-    --popover-foreground: 270 12% 89%;
-    --border: 258 7% 29%;
-    --input: 258 7% 29%;
-    --ring: 249 100% 85%;
-    --primary: 249 100% 85%;
-    --primary-foreground: 247 46% 28%;
-    --tertiary: 337 56% 82%;
-    --tertiary-foreground: 325 28% 21%;
-    --secondary: 265 17% 79%;
-    --secondary-foreground: 270 12% 89%;
-    --muted: 260 18% 14%;
-    --muted-foreground: 265 17% 79%;
-    --accent: 260 18% 14%;
-    --accent-foreground: 270 12% 89%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 270 12% 89%;
   }
 }
 
@@ -97,10 +202,55 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    font-family: var(--font-plain);
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Roboto Flex', serif;
+    font-family: var(--font-hero);
   }
+}
+
+@layer utilities {
+  .font-hologram { font-family: var(--font-hologram); }
+  .font-hero { font-family: var(--font-hero); font-variation-settings: 'wdth' 150, 'wght' 800; }
+  .font-human { font-family: var(--font-human); font-variation-settings: 'wdth' 100, 'wght' 400; }
+  .font-ai { font-family: var(--font-ai); font-variation-settings: 'wdth' 92, 'wght' 450; }
+  .font-plain { font-family: var(--font-plain); }
+
+  .surface { background-color: var(--color-surface); }
+  .surface-dim { background-color: var(--color-surface-dim); }
+  .surface-bright { background-color: var(--color-surface-bright); }
+  .surface-container-lowest { background-color: var(--color-surface-container-lowest); }
+  .surface-container-low { background-color: var(--color-surface-container-low); }
+  .surface-container { background-color: var(--color-surface-container); }
+  .surface-container-high { background-color: var(--color-surface-container-high); }
+  .surface-container-highest { background-color: var(--color-surface-container-highest); }
+
+  .text-on-surface { color: var(--color-on-surface); }
+  .text-on-surface-variant { color: var(--color-on-surface-variant); }
+
+  .animate-fade-in {
+    animation: fadeIn var(--duration-medium1) var(--ease-emphasized-decelerate) forwards;
+  }
+
+  .animate-pop-out {
+    transition: transform var(--duration-medium2) var(--ease-spring);
+  }
+
+  .animate-pop-out:hover {
+    transform: translateY(-15px) rotate(5deg) scale(1.1);
+  }
+
+  /* Text size utilities */
+  .text-display-lg { font-size: var(--text-display-lg); line-height: var(--lh-display-lg); }
+  .text-display-md { font-size: var(--text-display-md); }
+  .text-display-sm { font-size: var(--text-display-sm); }
+  .text-headline-lg { font-size: var(--text-headline-lg); }
+  .text-headline-md { font-size: var(--text-headline-md); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
