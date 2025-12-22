@@ -101,12 +101,7 @@ const Landing = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-bold text-white text-lg mb-3" style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontWeight: 700
-              }}>
-                    {card.title}
-                  </h3>
+                  
 
                   {/* Description */}
                   <p className="font-plain text-[#938F99] text-sm leading-relaxed">
