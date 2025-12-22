@@ -124,14 +124,14 @@ const Landing = () => {
               fontSize: "3.25rem",
               lineHeight: 1.1,
               letterSpacing: "-0.02em"
-            }}>Stop procrastinating. Get a job.<br />
+            }}>Stop procrastinating.<br />
                 Not the Paperwork.
               </motion.h1>
 
               {/* Subhead */}
               <motion.p variants={itemVariants} className="text-[#938F99] text-sm mb-4 max-w-md leading-relaxed" style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif"
-            }}>F ML</motion.p>
+            }}>GET A JOB YA KNOB.</motion.p>
 
               {/* Buttons */}
               <motion.div variants={itemVariants} className="flex flex-wrap gap-3">
