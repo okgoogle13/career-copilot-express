@@ -64,16 +64,11 @@ const Landing = () => {
               {/* Buttons */}
               <div className="flex flex-wrap gap-4">
                 {/* Primary - Sage Green Pill */}
-                <Link to="/" className="inline-flex items-center gap-2 bg-[#8A9A5B] text-[#121212] font-bold px-8 py-4 rounded-full transition-all duration-300 hover:bg-[#9AB065] hover:scale-105">
-                  Enter Workspace
-                  <ArrowRight className="w-5 h-5" />
+                <Link to="/" className="inline-flex items-center gap-2 bg-[#8A9A5B] text-[#121212] font-bold px-8 py-4 rounded-full transition-all duration-300 hover:bg-[#9AB065] hover:scale-105">Enter<ArrowRight className="w-5 h-5" />
                 </Link>
 
                 {/* Secondary - Outline Pill */}
-                <button className="inline-flex items-center gap-2 bg-transparent border border-[#49454F] text-[#E6E0E9] font-medium px-8 py-4 rounded-full transition-all duration-300 hover:border-[#938F99] hover:bg-[#1E1E1E]">
-                  <Book className="w-5 h-5" />
-                  Documentation
-                </button>
+                
               </div>
             </div>
           </div>
