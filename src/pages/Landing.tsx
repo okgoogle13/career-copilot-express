@@ -54,7 +54,8 @@ const Landing = () => {
               fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontWeight: 800,
               fontSize: 'clamp(2rem, 5vw, 3.5rem)'
-            }}>Career Copilot (FML)<br />
+            }}>Career Copilot (FML)
+              <br />
                 Not the Paperwork.
               </h1>
 
@@ -64,7 +65,7 @@ const Landing = () => {
               {/* Buttons */}
               <div className="flex flex-wrap gap-4">
                 {/* Primary - Sage Green Pill */}
-                <Link to="/" className="inline-flex items-center gap-2 bg-[#8A9A5B] text-[#121212] font-bold px-8 py-4 rounded-full transition-all duration-300 hover:bg-[#9AB065] hover:scale-105">Enter<ArrowRight className="w-5 h-5" />
+                <Link to="/" className="inline-flex items-center gap-2 bg-[#8A9A5B] text-[#121212] font-bold px-8 py-4 rounded-full transition-all duration-300 hover:bg-[#9AB065] hover:scale-105">Sign In<ArrowRight className="w-5 h-5" />
                 </Link>
 
                 {/* Secondary - Outline Pill */}
