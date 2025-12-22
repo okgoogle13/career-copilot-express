@@ -54,12 +54,12 @@ const Landing = () => {
               fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontWeight: 800,
               fontSize: 'clamp(2rem, 5vw, 3.5rem)'
-            }}>Career Copilot.<br />
+            }}>Career Copilot (FML)<br />
                 Not the Paperwork.
               </h1>
 
               {/* Subhead */}
-              <p className="font-plain text-[#938F99] text-lg md:text-xl leading-relaxed mb-10 max-w-xl">(FML)</p>
+              
 
               {/* Buttons */}
               <div className="flex flex-wrap gap-4">
