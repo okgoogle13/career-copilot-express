@@ -124,7 +124,8 @@ const Landing = () => {
               fontSize: "3.25rem",
               lineHeight: 1.1,
               letterSpacing: "-0.02em"
-            }}>Stop procrastinating.<br />
+            }}>Stop procrastinating.
+              <br />
                 Not the Paperwork.
               </motion.h1>
 
