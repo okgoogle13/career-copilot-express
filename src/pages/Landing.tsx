@@ -1,215 +1,246 @@
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { FileText, ClipboardList, FileCheck, BarChart3, ArrowRight, Book } from "lucide-react";
+import { motion, type Easing } from "framer-motion";
 import snakePlant from "@/assets/snakeplant.png";
-import plantBanner from "@/assets/plantbanner-footer.png";
-import FloatingNav from "@/components/landing/FloatingNav";
-const toolkitCards = [{
-  icon: ClipboardList,
-  title: "Selection Criteria",
-  description: "STAR responses for Government roles."
-}, {
-  icon: FileText,
-  title: "Resume Tailoring",
-  description: "Customized for each position description."
-}, {
-  icon: FileCheck,
-  title: "Cover Letters",
-  description: "Authentic, tailored cover letters."
-}, {
-  icon: BarChart3,
-  title: "ATS Analysis",
-  description: "Match score against job opportunities."
-}];
+import plantVine from "@/assets/plant-vine.png";
+import plantLeaves from "@/assets/plant-leaves.png";
 
-// M3 Emphasized easing
-const m3Emphasized = [0.2, 0.0, 0, 1.0] as const;
+// M3 Emphasized easing for expressive motion
+const m3Emphasized: Easing = [0.2, 0.0, 0, 1.0];
 
-// Animation variants - snappy for single viewport
+// Stagger animation variants
 const containerVariants = {
-  hidden: {
-    opacity: 0
-  },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.08,
+      staggerChildren: 0.12,
       ease: m3Emphasized,
-      duration: 0.35
+      duration: 0.5
     }
   }
 };
+
 const itemVariants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-    scale: 0.98
-  },
+  hidden: { opacity: 0, y: 40, scale: 0.96 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
     transition: {
       ease: m3Emphasized,
-      duration: 0.35
+      duration: 0.6
     }
   }
 };
-const cardHoverTransition = {
-  type: "spring" as const,
-  stiffness: 300,
-  damping: 25
-};
-const cardHoverVariants = {
-  rest: {
-    scale: 1,
-    borderColor: "#49454F",
-    transition: cardHoverTransition
-  },
-  hover: {
-    scale: 1.02,
-    borderColor: "#8A9A5B",
-    transition: cardHoverTransition
-  }
-};
+
 const Landing = () => {
-  const {
-    scrollYProgress
-  } = useScroll();
-
-  // Subtle floating animation for plant
-  const plantY = useTransform(scrollYProgress, [0, 1], [0, -20]);
-  return <div className="h-screen overflow-hidden bg-[#121212] flex flex-col relative">
-      {/* Floating Navigation */}
-      <FloatingNav />
-
+  return (
+    <div className="min-h-screen bg-[#121212] flex items-center justify-center relative overflow-hidden">
       {/* CSS Noise Texture Overlay */}
-      <div className="pointer-events-none fixed inset-0 z-0" style={{
-      opacity: 0.04,
-      backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
-    }} />
+      <div
+        className="pointer-events-none fixed inset-0 z-0"
+        style={{
+          opacity: 0.04,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+        }}
+      />
 
-      {/* Main Content - Single Viewport Layout */}
-      <main className="flex-1 flex flex-col relative z-10 pt-14 px-4 md:px-8">
-        {/* HERO SECTION - Overlapping Stack */}
-        <section className="flex-1 flex items-center justify-center relative">
-          {/* Background Plant - Centered with Radial Fade */}
-          <motion.div style={{
-          y: plantY
-        }} animate={{
-          y: [0, -6, 0]
-        }} transition={{
+      {/* Organic Blob Shapes - Background Layer */}
+      {/* Large blob - left side */}
+      <motion.div
+        animate={{
+          scale: [1, 1.05, 1],
+          rotate: [0, 3, -2, 0]
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut" as const
+        }}
+        className="absolute -left-32 top-1/2 -translate-y-1/2 w-[500px] h-[600px] pointer-events-none z-0"
+        style={{
+          background: "radial-gradient(ellipse at center, rgba(138, 154, 91, 0.15) 0%, transparent 70%)",
+          borderRadius: "60% 40% 55% 45% / 55% 45% 50% 50%",
+          filter: "blur(40px)"
+        }}
+      />
+
+      {/* Large blob - right side */}
+      <motion.div
+        animate={{
+          scale: [1, 1.08, 1],
+          rotate: [0, -3, 2, 0]
+        }}
+        transition={{
+          duration: 14,
+          repeat: Infinity,
+          ease: "easeInOut" as const,
+          delay: 2
+        }}
+        className="absolute -right-20 top-1/3 w-[450px] h-[550px] pointer-events-none z-0"
+        style={{
+          background: "radial-gradient(ellipse at center, rgba(208, 188, 255, 0.12) 0%, transparent 70%)",
+          borderRadius: "45% 55% 40% 60% / 50% 60% 40% 50%",
+          filter: "blur(50px)"
+        }}
+      />
+
+      {/* Plant decorations - positioned around the hero */}
+      {/* Top right - hanging vine */}
+      <motion.div
+        animate={{ y: [0, -12, 0] }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut" as const
+        }}
+        className="absolute top-0 right-8 md:right-16 w-32 md:w-48 pointer-events-none z-10"
+        style={{
+          maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 100%)"
+        }}
+      >
+        <img src={plantVine} alt="" className="w-full h-auto opacity-70" />
+      </motion.div>
+
+      {/* Top left - leaves */}
+      <motion.div
+        animate={{ y: [0, -8, 0] }}
+        transition={{
           duration: 5,
           repeat: Infinity,
-          ease: "easeInOut"
-        }} className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-            <div className="w-[280px] md:w-[350px] lg:w-[420px] translate-x-8 md:translate-x-16" style={{
-            maskImage: "radial-gradient(circle at center, black 15%, transparent 65%)",
-            WebkitMaskImage: "radial-gradient(circle at center, black 15%, transparent 65%)"
-          }}>
-              <img src={snakePlant} alt="" className="w-full h-auto object-contain opacity-50" />
-            </div>
-          </motion.div>
+          ease: "easeInOut" as const,
+          delay: 1
+        }}
+        className="absolute top-4 left-4 md:left-12 w-28 md:w-40 pointer-events-none z-10"
+        style={{
+          maskImage: "radial-gradient(circle at center, black 40%, transparent 80%)",
+          WebkitMaskImage: "radial-gradient(circle at center, black 40%, transparent 80%)"
+        }}
+      >
+        <img src={plantLeaves} alt="" className="w-full h-auto opacity-60" />
+      </motion.div>
 
-          {/* Hero Content - "The Leaf" Shape with Glassmorphism */}
-          <motion.div initial="hidden" animate="visible" variants={containerVariants} className="relative max-w-xl mx-auto z-10">
-            <motion.div variants={itemVariants} className="bg-[#1E1E1E]/30 backdrop-blur-2xl border border-[#49454F] px-6 py-5 md:px-8 md:py-6 rounded-tl-3xl rounded-tr-[4rem] rounded-br-3xl rounded-bl-lg">
-              {/* Tagline */}
-              <motion.span variants={itemVariants} className="inline-block font-mono text-[10px] tracking-widest uppercase text-[#D0BCFF] mb-3">FML</motion.span>
+      {/* Bottom left - snake plant */}
+      <motion.div
+        animate={{ y: [0, -10, 0] }}
+        transition={{
+          duration: 7,
+          repeat: Infinity,
+          ease: "easeInOut" as const,
+          delay: 0.5
+        }}
+        className="absolute bottom-0 left-8 md:left-20 w-40 md:w-56 pointer-events-none z-10"
+        style={{
+          maskImage: "linear-gradient(to top, black 50%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to top, black 50%, transparent 100%)"
+        }}
+      >
+        <img src={snakePlant} alt="" className="w-full h-auto opacity-60" />
+      </motion.div>
 
-              {/* Headline */}
-              <motion.h1 variants={itemVariants} className="font-extrabold text-white mb-3" style={{
+      {/* Bottom right - secondary plant */}
+      <motion.div
+        animate={{ y: [0, -6, 0] }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut" as const,
+          delay: 1.5
+        }}
+        className="absolute bottom-4 right-4 md:right-16 w-36 md:w-48 pointer-events-none z-10"
+        style={{
+          maskImage: "radial-gradient(circle at bottom center, black 30%, transparent 70%)",
+          WebkitMaskImage: "radial-gradient(circle at bottom center, black 30%, transparent 70%)"
+        }}
+      >
+        <img src={plantLeaves} alt="" className="w-full h-auto opacity-50 scale-x-[-1]" />
+      </motion.div>
+
+      {/* Central Hero Content */}
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+        className="relative z-20 text-center px-6 max-w-2xl mx-auto"
+      >
+        {/* Hero Card - "The Container" shape with glassmorphism */}
+        <motion.div
+          variants={itemVariants}
+          className="bg-[#1E1E1E]/80 backdrop-blur-xl border border-[#49454F] p-8 md:p-12 rounded-[28px] shadow-2xl"
+        >
+          {/* Headline */}
+          <motion.h1
+            variants={itemVariants}
+            className="font-extrabold text-white mb-4"
+            style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontWeight: 800,
-              fontSize: "3.25rem",
+              fontSize: "clamp(2rem, 6vw, 3.25rem)",
               lineHeight: 1.1,
               letterSpacing: "-0.02em"
-            }}>Stop procrastinating.
-              <br />
-                Not the Paperwork.
-              </motion.h1>
+            }}
+          >
+            Welcome to your
+            <br />
+            <span className="text-[#D0BCFF]">personal digital</span>
+            <br />
+            ecosystem.
+          </motion.h1>
 
-              {/* Subhead */}
-              <motion.p variants={itemVariants} className="text-[#938F99] text-sm mb-4 max-w-md leading-relaxed" style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif"
-            }}>GET A JOB YA KNOB.</motion.p>
+          {/* Subhead */}
+          <motion.p
+            variants={itemVariants}
+            className="text-[#938F99] text-base md:text-lg mb-8 max-w-md mx-auto leading-relaxed"
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+          >
+            A simple space to nurture your thoughts and organize your world. Sign in to continue growing.
+          </motion.p>
 
-              {/* Buttons */}
-              <motion.div variants={itemVariants} className="flex flex-wrap gap-3">
-                {/* Primary - Sage Green Pill */}
-                <Link to="/dashboard" className="inline-flex items-center gap-2 bg-[#8A9A5B] text-[#121212] font-bold px-5 py-2.5 rounded-full transition-all duration-200 hover:bg-[#9AB065] hover:scale-105 text-sm">Sign In<ArrowRight className="w-4 h-4" />
-                </Link>
+          {/* Buttons - Variable shapes for M3 contrast */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            {/* Primary - Filled Tonal Sage (rounded-full = pill) */}
+            <Link
+              to="/dashboard"
+              className="inline-flex items-center justify-center bg-[#8A9A5B] text-[#121212] font-bold px-8 py-3.5 rounded-full transition-all duration-300 hover:bg-[#9AB065] hover:scale-105 text-base"
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            >
+              Sign In
+            </Link>
 
-                {/* Secondary - Outline Pill */}
-                <a href="#" className="inline-flex items-center gap-2 border border-[#49454F] text-[#E3E3E3] font-medium px-5 py-2.5 rounded-full transition-all duration-200 hover:border-[#8A9A5B] hover:text-white text-sm">Register<Book className="w-4 h-4" />
-                  Documentation
-                </a>
-              </motion.div>
-            </motion.div>
+            {/* Secondary - Outline with different radius (rounded-2xl = squircle) */}
+            <Link
+              to="#"
+              className="inline-flex items-center justify-center border-2 border-[#49454F] text-[#E3E3E3] font-semibold px-8 py-3.5 rounded-2xl transition-all duration-300 hover:border-[#8A9A5B] hover:text-white hover:scale-105 text-base"
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            >
+              Register
+            </Link>
           </motion.div>
-        </section>
+        </motion.div>
+      </motion.div>
 
-        {/* TOOLKIT GRID - Compact */}
-        <motion.section id="toolkit" initial="hidden" animate="visible" variants={containerVariants} className="py-4">
-          <motion.div variants={containerVariants} className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto">
-            {toolkitCards.map((card, index) => <motion.div key={index} variants={itemVariants} initial="rest" whileHover="hover" animate="rest">
-                <motion.div variants={cardHoverVariants} className="h-full bg-[#2C2C2C] border border-[#49454F] rounded-[16px] p-4 cursor-pointer" style={{
-              borderColor: "#49454F"
-            }}>
-                  {/* Icon */}
-                  <div className="w-8 h-8 rounded-full bg-[#8A9A5B]/20 flex items-center justify-center mb-2">
-                    <card.icon className="w-4 h-4 text-[#8A9A5B]" />
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-white font-semibold text-sm mb-1" style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontWeight: 600
-              }}>
-                    {card.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-[#938F99] text-xs leading-snug" style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif"
-              }}>
-                    {card.description}
-                  </p>
-                </motion.div>
-              </motion.div>)}
-          </motion.div>
-        </motion.section>
-      </main>
-
-      {/* FOOTER - Anchored to Bottom */}
-      <motion.footer initial={{
-      opacity: 0,
-      y: 20
-    }} animate={{
-      opacity: 1,
-      y: 0
-    }} transition={{
-      delay: 0.3,
-      duration: 0.4,
-      ease: m3Emphasized
-    }} className="relative w-full flex-shrink-0" style={{
-      maxHeight: "120px"
-    }}>
-        {/* Gradient Mask Overlay */}
-        <div className="absolute inset-0 pointer-events-none z-10" style={{
-        background: "linear-gradient(to bottom, #121212 0%, transparent 50%)"
-      }} />
-
-        {/* Plant Banner Image */}
-        <img src={plantBanner} alt="" className="w-full h-[120px] object-cover object-top" />
-
-        {/* Footer Text */}
-        <div className="absolute inset-0 flex items-end justify-center pb-3 z-20">
-          <p className="font-mono text-[10px] tracking-widest uppercase text-[#49454F]">
-            CAREER COPILOT • Built for Australian Social Workers
-          </p>
-        </div>
-      </motion.footer>
-    </div>;
+      {/* Decorative sparkle - bottom right corner */}
+      <motion.div
+        animate={{
+          opacity: [0.4, 1, 0.4],
+          scale: [1, 1.2, 1],
+          rotate: [0, 180, 360]
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut" as const
+        }}
+        className="absolute bottom-8 right-8 text-[#E3E3E3]/40 text-2xl pointer-events-none z-10"
+      >
+        ✦
+      </motion.div>
+    </div>
+  );
 };
+
 export default Landing;
